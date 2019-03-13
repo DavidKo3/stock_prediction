@@ -40,5 +40,5 @@ def positive_average(num):
 
 print(data)
 
-daily_data = data.drop('')
+daily_data = data.drop('Time')
 
