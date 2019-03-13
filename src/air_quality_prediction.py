@@ -37,8 +37,12 @@ for col in data.iloc[:, 2:].columns:
 def positive_average(num):
     return num[num > -200].mean()
 
-
+print("-------data------")
 print(data)
-
+print("-------data------")
 daily_data = data.drop('Time')
+
+print("-------dropped data------")
+print(data)
+print("-------data------")
 
