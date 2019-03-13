@@ -43,6 +43,6 @@ print("-------data------")
 daily_data = data.drop('Time', axis=1)
 
 print("-------dropped data------")
-print(data)
+print(daily_data)
 print("-------data------")
 
