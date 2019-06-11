@@ -8,16 +8,11 @@ from scipy.optimize import minimize
 import statsmodels.tsa.api as smt
 import statsmodels.api as sm
 
-
-
 from sklearn.metrics import r2_score, median_absolute_error, mean_absolute_error
 from sklearn.metrics import median_absolute_error, mean_squared_error, mean_squared_log_error
 
-
 from tqdm import tqdm_notebook
-
 from itertools import product
-
 
 
 import warnings
@@ -32,13 +27,10 @@ data.head(10)
 
 # print(data.head(10))
 
-
 # cleaning the data
 data = data[data.TICKER != 'GEF']
+
 data = data[data.TYPE != 'Intraday']
-
-# print(data.head())
-
 
 
 # remove unwanted columns
@@ -46,6 +38,8 @@ data = data[data.TYPE != 'Intraday']
 drop_cols = ['SPLIT_RATIO', 'EX_DIVIDEND', 'ADJ_FACTOR', 'ADJ_VOLUME', 'ADJ_CLOSE', 'ADJ_LOW', 'ADJ_HIGH', 'ADJ_OPEN', 'VOLUME', 'FREQUENCY', 'TYPE', 'FIGI']
 data.drop(drop_cols, axis=1, inplace=True)
 
+
+print(data)
 
 print("---------------data---------------------")
 print(data.OPEN)
