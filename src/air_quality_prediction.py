@@ -7,6 +7,7 @@ from scipy import stats
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 
+
 DATAPATH = '../data/AirQualityUCI.csv'
 
 data = pd.read_csv(DATAPATH, sep=';')
@@ -29,20 +30,22 @@ print(data.iloc[:, 2:])
 
 print(data.head())
 
-for col in data.iloc[:, 2:].columns:
-    print(data[col].dtypes)
-    if data[col].dtypes == object:
-        data[col] = data[col].str.replace(',', '.').astype('float')
+# for col in data.iloc[:, 2:].columns:
+#     print(data[col].dtypes)
+#     if data[col].dtypes == object:
+#         data[col] = data[col].str.replace(',', '.').astype('float')
+#
+# def positive_average(num):
+#     return num[num > -200].mean()
+#
+# print("-------data------")
+# print(data)
+# print("-------data------")
+# daily_data = data.drop('Time', axis=1).groupby('Date')
+#
+# print("-------dropped data------")
+# print(daily_data.head())
+# print("-------data------")
 
-def positive_average(num):
-    return num[num > -200].mean()
 
-print("-------data------")
-print(data)
-print("-------data------")
-daily_data = data.drop('Time', axis=1)
-
-print("-------dropped data------")
-print(daily_data)
-print("-------data------")
 

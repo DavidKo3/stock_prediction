@@ -18,8 +18,7 @@ from tqdm import tqdm_notebook
 
 from itertools import product
 
-def mean_absolute_percentage_error(y_true, y_pred):
-    return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -40,14 +39,21 @@ data = data[data.TYPE != 'Intraday']
 
 # print(data.head())
 
+
+
+# remove unwanted columns
+
 drop_cols = ['SPLIT_RATIO', 'EX_DIVIDEND', 'ADJ_FACTOR', 'ADJ_VOLUME', 'ADJ_CLOSE', 'ADJ_LOW', 'ADJ_HIGH', 'ADJ_OPEN', 'VOLUME', 'FREQUENCY', 'TYPE', 'FIGI']
 data.drop(drop_cols, axis=1, inplace=True)
 
 
 print("---------------data---------------------")
-print(data.CLOSE)
+print(data.OPEN)
 print("----------------------------------------")
 
+
+
+# Exploratory Data Analysis(EDA)
 
 plt.figure(figsize=(17, 8))
 plt.plot(data.CLOSE)
@@ -58,8 +64,14 @@ plt.grid(False)
 plt.show()
 
 
+# Moving average filter
+# smoothing the time series !
 
 
+temp_data = data.CLOSE
+
+print("temp_data")
+print(temp_data.rolling(window=3).mean())
 
 
 
